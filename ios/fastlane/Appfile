@@ -1,0 +1,8 @@
+app_identifier("com.KlearExpress.customer") # The bundle identifier of your app
+apple_id("prabhat@eleganzit.com") # Your Apple email address
+
+
+team_id("954CL4N39N") # Developer Portal Team ID
+
+# For more information about the Appfile, see:
+#     https://docs.fastlane.tools/advanced/#appfile

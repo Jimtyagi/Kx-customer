@@ -1,0 +1,63 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.KlearExpress.customer"
+    android:versionCode="1"
+    android:versionName="0.3">
+   
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/> 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.RECORD_VIDEO"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" tools:node="remove"/>
+    <uses-sdk
+        android:minSdkVersion="19"
+        android:targetSdkVersion="27" />
+
+    <application
+      android:name=".MainApplication"
+      android:launchMode="singleTop"
+      android:allowBackup="true"
+      android:label="@string/app_name"
+      android:icon="@mipmap/ic_launcher"
+      android:hardwareAccelerated="true"
+      android:largeHeap="true"
+      android:theme="@style/AppTheme">
+      <activity
+        android:name=".MainActivity"
+        android:label="@string/app_name"
+        android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+        android:launchMode="singleTop"
+        android:windowSoftInputMode="adjustPan">
+          <intent-filter>
+              <action android:name="android.intent.action.MAIN" />
+              <category android:name="android.intent.category.LAUNCHER" />
+              <action android:name="android.intent.action.DOWNLOAD_COMPLETE"/>
+          </intent-filter>
+          <intent-filter android:label="filter_react_native">
+              <action android:name="android.intent.action.VIEW" />
+              <category android:name="android.intent.category.DEFAULT" />
+              <category android:name="android.intent.category.BROWSABLE" />
+              <data android:scheme="klearexpress"/>
+          </intent-filter>
+      </activity>
+      <activity android:name="com.facebook.react.devsupport.DevSettingsActivity" />
+
+      <meta-data android:name="com.google.firebase.messaging.default_notification_color" android:value="#FD727D"/>
+      <meta-data android:name="com.onesignal.NotificationAccentColor.DEFAULT" android:value="FD727D" />
+       <meta-data
+     android:name="com.google.android.geo.API_KEY"
+     android:value="AIzaSyDRJkEv2DPwUDC-IM5BGDDdADZ9Y_264bo"/>
+      <provider
+          android:name="android.support.v4.content.FileProvider"
+          android:authorities="${applicationId}.provider"
+          android:exported="false"
+          android:grantUriPermissions="true">
+          <meta-data
+              android:name="android.support.FILE_PROVIDER_PATHS"
+              android:resource="@xml/provider_paths"/>
+      </provider>
+    </application>
+
+</manifest>

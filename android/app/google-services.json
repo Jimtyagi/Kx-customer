@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "785030416346",
+    "firebase_url": "https://klearexpress.firebaseio.com",
+    "project_id": "klearexpress",
+    "storage_bucket": "klearexpress.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:785030416346:android:09f6da0ea5751b91",
+        "android_client_info": {
+          "package_name": "com.KlearExpress.customer"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "785030416346-66t9o0gb0t04pq4j9hek61c296vmpvvk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBAyztOu46AMNgNUKOKytvEQ8Cw9G238VA"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

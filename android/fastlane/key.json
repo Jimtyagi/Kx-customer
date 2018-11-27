@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "api-8350371293621491959-900661",
+  "private_key_id": "3ad31033c6f5832e24d41e7a57427be57f956227",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCtKXRrjC8uCP/w\nYmRm63rA/pCPPuK990NXUZAVtKkl74WNUf9SVWaywW51b1DtpiBBohEC2XmdxKwb\nyNnullAEE0ZeQlsA+2E9OkSP8IXnplSLG90u7NZlcUcJbqCkRe9jE/6PBM66LmrK\nE2mT8KlYIqCB+vnVMs52PN8vG+85X5fEqGGtuzV/1MXZn8JeVY1/FiFY/WowiwDg\nCwSPSxHVHAto9cuHv+U+l4aqzk8MYUU+SfaaZpeiqZqzQPV6CBo3s/UEicnutd8H\nr0TqY7GMf4oa18pBeZSqVi9ZIj4w3WwHkBO/ucwm2Ni+ConRvJ2iHfdAcnHkPSVO\norLjxWZpAgMBAAECggEAAJN+kF0WwlNOIsphkFglqk95btF9mVlqXikWnsneSeQs\nDM0nau1iHI83xUolFaQRgqg2iUysyISoeFmyRAaPtns2hxPrgszcDGkR9bdrGbsL\nb32laey/4LvHfj179N7gvpXGEiKLuK16hNLm0zLKU9FwIZNPtpsf3Qgwy4FGagbB\nxwiqSDEnNAkt7QgorOcib4FQph0Z/T/oKbfjWc4pP6kxV3/HA4Ojk0jh9MnHqJqI\neE8DfZnYIDsBOODKbrmCf1BW6F4jKX09sORllu90srOj+ITpMxlxXdq5Htte4Bp4\n3ZIH53LTekMsFeRtqqZe3hs/Rw35dfwK+H+zipWJMQKBgQDiQTTaOGrXe4b0k2iL\nyMON47OrkSBAo970kuHDa1HMGnjCa5pi2fAg/JSCDXCHHBKbb6ugtoq7b9F1MJb2\nbudYFZrmZ6NlBxEcmpGHeQxzzqeFQGu5U4cavRLtgjn4l1cWyrpy7w+h+Ln5UsnE\nmV1hFoY/Q2ai3xFvEXr4XvC4sQKBgQDD7V2t6h+mHcoiMVgfSP1NhxsJ16+TTgLo\nM1OSKPZrtM9VdwwD1soLghx05FR2+cEiyDiDP472l7xHiLSmuLH0VDYe2III+Ggu\nFA4xR4DlKMZF5zHlZis99QB5mqt8BXjeTmSNpD/KXj0zr1Q7gLdtL9GYOsJVyReK\nHIIKM/J3OQKBgBMIWzLUNiCkUoj2cX/4xoKEGhQfpC/r2RCH3pf6yim6PFhWhukz\n3iBYPwHlsYacFPCgZzagxHDaCiuqh7h5QdrGDn69TyBrhMP8OKvFwgdn5e2uqqEv\nZpkYOKRkJQ5FZN0U9rQ+afk9HB/eF/0CzbkiFO7zc4nV6/iE5uxHyEYxAoGBAJdi\nurV8Z0PlVJ+i3OIfdYkH0X6DZyg8aMadkf8nI3AJXwI8X84/khHeULqJCjJ7vB1x\n8yiGXaJvj4z+Ngd0Qhv1TXP7+k2QEn84A9dT1mY6YSj2AHmtvc+7lMhhGAtV9xRe\nIhfHR3rH4iYjXMQ1KoV1I0+qZyn9nPCcImZbyQcRAoGAN3L19CrTgt2nlKyHtMXs\np+DPU5ZTx4D3HEqzOk9M5R1/DZi9riBzaepYzCmaJVVH9ELGP/KW34kuBkeenba/\nHy3KPWVySdwJjEBv+DDAH97p1MtQhtQbORb+Q/LxJfyWYi9EM62fWbTjWhIjraWT\nQrvSowsiW28MFohd6or0Mf8=\n-----END PRIVATE KEY-----\n",
+  "client_email": "eleganz-it@api-8350371293621491959-900661.iam.gserviceaccount.com",
+  "client_id": "104391944768691098911",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/eleganz-it%40api-8350371293621491959-900661.iam.gserviceaccount.com"
+}
