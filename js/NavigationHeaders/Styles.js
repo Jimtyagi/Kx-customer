@@ -12,6 +12,14 @@ export default (styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center"
   },
+  headerIconContainer: {
+    width: 24,
+    height: 24,
+    backgroundColor: colors.black,
+    alignItems: "center",
+    justifyContent: "center",
+    borderRadius: 12
+  },
   headerLeftDrawerContainer: {
     paddingRight: 16,
     height: "100%",

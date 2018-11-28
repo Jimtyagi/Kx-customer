@@ -28,7 +28,7 @@ class ShipmentDetail extends Component {
         <MapView
           style={styles.map}
           initialRegion={{
-            latitude: coordinate.latitude - 0.0035,
+            latitude: coordinate.latitude - 0.002,
             longitude: coordinate.longitude,
             latitudeDelta: 0.099 * 0.3,
             longitudeDelta: 0.067 * 0.3

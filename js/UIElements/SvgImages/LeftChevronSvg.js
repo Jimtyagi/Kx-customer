@@ -1,32 +1,22 @@
 import React from "react";
 import { colors } from "js/UIElements/colors";
-import Svg, { G, Path, Circle } from "react-native-svg";
+import Svg, { G, Path } from "react-native-svg";
 
 const LeftChevronSvg = props => {
   return (
-    <Svg width={20} height={32}>
-      <G
-        scale={props.scale}
-        y={props.y}
-        x={props.x}
-        rotate={180}
-        stroke={props.stroke}
-      >
-        <Path
-          fill={props.fill}
-          d="M7.81755,31.67658a1.54606,1.54606,0,0,1,.20324-2.06833L21.36964,15.936,8.0208,2.26657a1.35215,1.35215,0,0,1,0-1.8781,1.27609,1.27609,0,0,1,1.83362,0l14.267,14.60992a1.35369,1.35369,0,0,1,0,1.878L9.85441,31.48627A1.49856,1.49856,0,0,1,7.81755,31.67658Z"
-        />
-      </G>
+    <Svg width={props.width} height={props.height} viewBox="0 0 18 32">
+      <Path
+        fill={props.fill}
+        d="M17.1948425,0.313000859 C17.6697001,0.951948217 17.5817464,1.84703359 16.9916025,2.38133086 L3.64275247,16.0535809 L16.9915925,29.7230109 C17.4972863,30.2469225 17.4972863,31.0771992 16.9915925,31.6011109 C16.751202,31.8494074 16.4203816,31.9895832 16.0747825,31.9895832 C15.7291833,31.9895832 15.398363,31.8494074 15.1579725,31.6011109 L0.890972472,16.9911909 C0.386141779,16.4669696 0.386141779,15.6374121 0.890972472,15.1131909 L15.1579825,0.503310859 C15.6813122,-0.0857625972 16.5714456,-0.168930456 17.1948425,0.313000859 Z"
+      />
     </Svg>
   );
 };
 
 LeftChevronSvg.defaultProps = {
-  scale: "0.5",
-  stroke: colors.marble,
-  x: "16",
-  y: "12",
-  fill: colors.marble
+  fill: colors.marble,
+  width: 10,
+  height: 18
 };
 
 export default LeftChevronSvg;

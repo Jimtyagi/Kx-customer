@@ -112,7 +112,9 @@ const headerLeft = ({ navigation }) => {
             {headerLeftText}
           </Text>
         ) : (
-          <LeftChevronSvg fill={leftChevronColor} />
+          <View style={styles.headerIconContainer}>
+            <LeftChevronSvg fill={colors.white} width={6} height={12} />
+          </View>
         )}
       </View>
     </TouchableOpacity>
