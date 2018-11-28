@@ -49,6 +49,20 @@ export const fontStyle = {
       android: { width: "100%", fontFamily: "sans-serif", fontWeight: "400" }
     })
   },
+  medium: {
+    ...Platform.select({
+      ios: {
+        width: "100%",
+        fontFamily: "Helvetica Neue",
+        fontWeight: "500"
+      },
+      android: {
+        width: "100%",
+        fontFamily: "sans-serif-medium",
+        fontWeight: "100"
+      }
+    })
+  },
   bold: {
     ...Platform.select({
       ios: { width: "100%", fontFamily: "Helvetica-Bold", fontWeight: "bold" },

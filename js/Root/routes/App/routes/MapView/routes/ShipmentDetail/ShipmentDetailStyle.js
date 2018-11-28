@@ -1,9 +1,6 @@
-import { StyleSheet, Dimensions } from "react-native";
-import { HEADER_HEIGHT } from "js/static";
+import { StyleSheet } from "react-native";
 import { colors } from "js/UIElements/colors";
-const { width: viewportWidth, height: viewportHeight } = Dimensions.get(
-  "window"
-);
+import { HEADER_HEIGHT } from "js/static";
 const styles = StyleSheet.create({
   container: {
     width: "100%",
@@ -18,9 +15,6 @@ const styles = StyleSheet.create({
     left: 0,
     right: 0,
     bottom: 0
-  },
-  shipmentFeedContainer: {
-    flex: 1
   },
   markerIcon: {
     width: 24,
@@ -38,4 +32,5 @@ const styles = StyleSheet.create({
     borderWidth: 1
   }
 });
+
 export default styles;

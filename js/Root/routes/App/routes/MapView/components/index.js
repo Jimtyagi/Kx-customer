@@ -3,7 +3,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { createStackNavigator } from "react-navigation";
 import { StackNavigationHeader } from "js/NavigationHeaders";
-import { MapDetail } from "../routes";
+import { MapDetail, ShipmentDetail } from "../routes";
 import { screenChange } from "js/modules/navigationModule";
 import { navigateOnce } from "js/Services";
 import { Header } from "react-navigation";
@@ -17,7 +17,10 @@ const MapNavigator = createStackNavigator(
       path: "mapDetail",
       navigationOptions: ({ navigation, screenProps }) => {
         return {
-          headerStyle: StackNavigationHeader.headerStyle({ navigation }),
+          headerStyle: StackNavigationHeader.headerStyle({
+            navigation,
+            color: `rgba(0,0,0,0.25)`
+          }),
           headerLeft: StackNavigationHeader.headerLeftDrawer({
             navigation,
             screenProps
@@ -27,6 +30,24 @@ const MapNavigator = createStackNavigator(
           headerTitle: StackNavigationHeader.headerTitle({
             navigation,
             showLogo: true
+          })
+        };
+      }
+    },
+    shipmentDetail: {
+      screen: ShipmentDetail,
+      path: "shipmentDetail",
+      navigationOptions: ({ navigation, screenProps }) => {
+        return {
+          headerStyle: StackNavigationHeader.headerStyle({ navigation }),
+          headerLeft: StackNavigationHeader.headerLeft({
+            navigation,
+            screenProps
+          }),
+          headerLayoutPreset: "center",
+          headerRight: StackNavigationHeader.headerRight({ navigation }),
+          headerTitle: StackNavigationHeader.headerTitle({
+            navigation
           })
         };
       }

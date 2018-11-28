@@ -103,7 +103,7 @@ export default (styles = StyleSheet.create({
   },
   headerTitleText: {
     textAlign: "center",
-    fontSize: 16,
+    fontSize: 18,
     //width: "100%",
     color: "black",
     ...fontStyle.medium

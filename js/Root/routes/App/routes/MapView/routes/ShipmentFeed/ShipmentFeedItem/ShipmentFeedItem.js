@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { View, Text } from "react-native";
+import { View, Text, TouchableWithoutFeedback } from "react-native";
 import styles from "./ShipmentFeedItemStyle";
 import { colors } from "js/UIElements/colors";
 import { CarrierShipIconSvg, MoreItemIconSvg } from "js/UIElements/SvgImages";
@@ -89,76 +89,79 @@ const LinearGradient = ({ gradientLocations, gradientColors }) => {
 };
 
 class ShipmentFeedItem extends Component {
+  onClickItem = () => {
+    const { onClickItem, item } = this.props;
+    onClickItem(item);
+  };
   render() {
-    const { item: { title, status } = {} } = this.props;
-    const statusBgColor = _.get(
-      SHIPMENT_STATUS[status],
-      "iconBgColor",
-      colors.christi
-    );
+    const { item: { title, status, bgColor } = {} } = this.props;
+
     const gradientColors = _.get(SHIPMENT_STATUS[status], "gradientColors", []);
     const gradientLocations = _.get(SHIPMENT_STATUS[status], "locations", []);
     return (
-      <View style={styles.container}>
-        <View style={styles.topContainer}>
-          <View style={styles.topLeftContainer}>
-            <View
-              style={{ ...styles.statusIcon, backgroundColor: statusBgColor }}
-            >
-              <CarrierShipIconSvg />
-            </View>
+      <TouchableWithoutFeedback onPress={this.onClickItem}>
+        <View style={styles.container}>
+          <View style={styles.topContainer}>
+            <View style={styles.topLeftContainer}>
+              <View style={{ ...styles.statusIcon, backgroundColor: bgColor }}>
+                <CarrierShipIconSvg />
+              </View>
 
-            <View style={styles.detailTitleContainer}>
-              <Text numberOfLines={1} style={styles.titleText}>
-                {title}
-              </Text>
-              <View style={styles.subTitleTextContainer}>
-                <Text
-                  numberOfLines={1}
-                  style={styles.subTitleText1}
-                >{`BOL`}</Text>
-                <Text
-                  numberOfLines={1}
-                  style={styles.subTitleText2}
-                >{`HFAAAA123456789`}</Text>
+              <View style={styles.detailTitleContainer}>
+                <Text numberOfLines={1} style={styles.titleText}>
+                  {title}
+                </Text>
+                <View style={styles.subTitleTextContainer}>
+                  <Text
+                    numberOfLines={1}
+                    style={styles.subTitleText1}
+                  >{`BOL`}</Text>
+                  <Text
+                    numberOfLines={1}
+                    style={styles.subTitleText2}
+                  >{`HFAAAA123456789`}</Text>
+                </View>
               </View>
             </View>
+            <View style={styles.topRightContainer}>
+              <MoreItemIconSvg width={16} height={16} fill={colors.silver} />
+            </View>
           </View>
-          <View style={styles.topRightContainer}>
-            <MoreItemIconSvg width={16} height={16} fill={colors.silver} />
+          <View style={styles.detailTextContainer}>
+            <Text
+              numberOfLines={1}
+              style={styles.fromText}
+            >{`Melliania furniture industries, Indonesia`}</Text>
+            <Text numberOfLines={1} style={styles.etaText}>{`ETA`}</Text>
+          </View>
+          <View style={styles.detailTextContainer}>
+            <Text
+              numberOfLines={1}
+              style={styles.toText}
+            >{`Gaungdong, China`}</Text>
+            <Text
+              numberOfLines={1}
+              style={styles.dateText}
+            >{`10.02.2018`}</Text>
+          </View>
+
+          <LinearGradient
+            gradientLocations={gradientLocations}
+            gradientColors={gradientColors}
+          />
+
+          <View style={styles.footerTextContainer}>
+            <Text
+              numberOfLines={1}
+              style={styles.footerText}
+            >{`Stanton, CA USA`}</Text>
+            <Text
+              numberOfLines={1}
+              style={styles.footerSubText}
+            >{`LifeStyles Solution Inc.`}</Text>
           </View>
         </View>
-        <View style={styles.detailTextContainer}>
-          <Text
-            numberOfLines={1}
-            style={styles.fromText}
-          >{`Melliania furniture industries, Indonesia`}</Text>
-          <Text numberOfLines={1} style={styles.etaText}>{`ETA`}</Text>
-        </View>
-        <View style={styles.detailTextContainer}>
-          <Text
-            numberOfLines={1}
-            style={styles.toText}
-          >{`Gaungdong, China`}</Text>
-          <Text numberOfLines={1} style={styles.dateText}>{`10.02.2018`}</Text>
-        </View>
-
-        <LinearGradient
-          gradientLocations={gradientLocations}
-          gradientColors={gradientColors}
-        />
-
-        <View style={styles.footerTextContainer}>
-          <Text
-            numberOfLines={1}
-            style={styles.footerText}
-          >{`Stanton, CA USA`}</Text>
-          <Text
-            numberOfLines={1}
-            style={styles.footerSubText}
-          >{`LifeStyles Solution Inc.`}</Text>
-        </View>
-      </View>
+      </TouchableWithoutFeedback>
     );
   }
 }

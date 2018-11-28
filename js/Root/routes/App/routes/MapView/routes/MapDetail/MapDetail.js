@@ -1,12 +1,70 @@
 import React, { Component } from "react";
 import styles from "./MapDetailStyle";
-import { View } from "react-native";
+import { View, TouchableWithoutFeedback, findNodeHandle } from "react-native";
 import { connect } from "react-redux";
 import MapView, { Marker } from "react-native-maps";
 import _ from "lodash";
 import ShipmentFeed from "../ShipmentFeed";
 import { CarrierShipIconSvg } from "js/UIElements/SvgImages";
-import { colors } from "../../../../../../../UIElements/colors";
+import { colors } from "js/UIElements/colors";
+import { setSelectedShipmentDetail } from "js/modules/shipmentDetailModule";
+const TEMP_FEED_DATA = [
+  {
+    id: "1",
+    title: "Bedroom Furniture",
+    status: "1",
+
+    coordinate: {
+      latitude: 37.82,
+      longitude: -122.36
+    },
+    bgColor: colors.christi
+  },
+  {
+    id: "2",
+    title: "Bedroom Furniture",
+    status: "2",
+
+    coordinate: {
+      latitude: 37.79,
+      longitude: -122.38
+    },
+    bgColor: colors.butterCup
+  },
+  {
+    id: "3",
+    title: "Bedroom Furniture",
+    status: "1",
+
+    coordinate: {
+      latitude: 37.81,
+      longitude: -122.37
+    },
+    bgColor: colors.christi
+  },
+  {
+    id: "4",
+    title: "Bedroom Furniture",
+    status: "3",
+    coordinate: {
+      latitude: 37.78,
+      longitude: -122.35
+    },
+    bgColor: colors.monza
+  },
+  {
+    id: "5",
+    title: "Bedroom Furniture",
+    status: "2",
+    coordinate: {
+      latitude: 37.82,
+      longitude: -122.4
+    },
+    bgColor: colors.butterCup
+  }
+];
+
+var RCTUIManager = require("NativeModules").UIManager;
 
 const MarkerIcon = ({ bgColor }) => {
   return (
@@ -16,52 +74,28 @@ const MarkerIcon = ({ bgColor }) => {
   );
 };
 
-const Markers = [
-  {
-    id: 1,
-    coordinate: {
-      latitude: 37.82,
-      longitude: -122.36
-    },
-    bgColor: colors.christi
-  },
-  {
-    id: 2,
-    coordinate: {
-      latitude: 37.79,
-      longitude: -122.38
-    },
-    bgColor: colors.christi
-  },
-  {
-    id: 3,
-    coordinate: {
-      latitude: 37.81,
-      longitude: -122.37
-    },
-    bgColor: colors.butterCup
-  },
-  {
-    id: 4,
-    coordinate: {
-      latitude: 37.78,
-      longitude: -122.35
-    },
-    bgColor: colors.monza
-  },
-  {
-    id: 5,
-    coordinate: {
-      latitude: 37.82,
-      longitude: -122.4
-    },
-    bgColor: colors.monza
-  }
-];
 class MapDetail extends Component {
   onRegionChange(region) {
     //console.log(region);
   }
+
+  onClickItem = item => {
+    const {
+      navigation: { navigate },
+      setSelectedShipmentDetail
+    } = this.props;
+    var handle = findNodeHandle(this);
+    RCTUIManager.measure(handle, (x, y, width, height, pageX, pageY) => {
+      let position = {};
+      position.x = pageX;
+      position.y = pageY;
+      navigate(`shipmentDetail`, {
+        transition: "sharedElementTransition",
+        position
+      });
+    });
+    setSelectedShipmentDetail(item);
+  };
 
   render() {
     return (
@@ -76,21 +110,28 @@ class MapDetail extends Component {
           }}
           onRegionChange={this.onRegionChange}
         >
-          {_.map(Markers, item => {
+          {_.map(TEMP_FEED_DATA, item => {
             return (
-              <Marker coordinate={item.coordinate} key={item.id}>
-                <MarkerIcon bgColor={item.bgColor} />
-              </Marker>
+              <TouchableWithoutFeedback onPress={() => this.onClickItem(item)}>
+                <Marker coordinate={item.coordinate} key={item.id}>
+                  <MarkerIcon bgColor={item.bgColor} />
+                </Marker>
+              </TouchableWithoutFeedback>
             );
           })}
         </MapView>
-        <ShipmentFeed />
+        <ShipmentFeed
+          onClickItem={this.onClickItem}
+          feedData={TEMP_FEED_DATA}
+        />
       </View>
     );
   }
 }
 
-const mapActionCreators = {};
+const mapActionCreators = {
+  setSelectedShipmentDetail
+};
 
 const mapStateToProps = (state, ownProps) => {
   return {};

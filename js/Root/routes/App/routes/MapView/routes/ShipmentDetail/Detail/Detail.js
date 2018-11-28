@@ -2,29 +2,29 @@ import React, { Component } from "react";
 import {
   View,
   Dimensions,
-  FlatList,
+  ScrollView,
   TouchableWithoutFeedback
 } from "react-native";
 import Interactable from "react-native-interactable";
-import styles from "./ShipmentFeedStyle";
-import ShipmentFeedItem from "./ShipmentFeedItem";
+import styles from "./DetailStyle";
 
 const Screen = {
   width: Dimensions.get("window").width,
   height: Dimensions.get("window").height - 75
 };
 
-class ShipmentFeed extends Component {
+class Detail extends Component {
   constructor(props) {
     super(props);
     this.state = { drawerState: "closed" };
   }
-  _renderItem = ({ item }) => {
-    const { onClickItem } = this.props;
-    return <ShipmentFeedItem item={item} onClickItem={onClickItem} />;
+
+  componentDidMount = () => {
+    setTimeout(() => {
+      this.onDrawerClick();
+    }, 0.1);
   };
 
-  _keyExtractor = (item, index) => item.id;
   onDrawerClick = () => {
     if (
       this.refs["BottomDrawerInstance"] &&
@@ -48,14 +48,14 @@ class ShipmentFeed extends Component {
             verticalOnly={true}
             initialPosition={{ y: Screen.height + 20 }}
             boundaries={{
-              top: 80,
+              top: 200,
               bottom: Screen.height + 20,
 
               haptics: true
             }}
             snapPoints={[
               { y: Screen.height + 20, id: "closed" },
-              { y: 80, id: "open" }
+              { y: 200, id: "open" }
             ]}
             onSnap={this.onDrawerSnap}
           >
@@ -65,12 +65,7 @@ class ShipmentFeed extends Component {
                   <View style={styles.panelHandle} />
                 </View>
               </TouchableWithoutFeedback>
-              <FlatList
-                data={feedData}
-                keyExtractor={this._keyExtractor}
-                renderItem={this._renderItem}
-                contentContainerStyle={styles.flatList}
-              />
+              <ScrollView style={styles.scrollList} />
             </View>
           </Interactable.View>
         </View>
@@ -79,4 +74,4 @@ class ShipmentFeed extends Component {
   }
 }
 
-export default ShipmentFeed;
+export default Detail;

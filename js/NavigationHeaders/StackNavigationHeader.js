@@ -11,7 +11,11 @@ import {
 } from "react-native";
 import { HEADER_HEIGHT } from "js/static";
 import styles from "./Styles";
-import { DrawerIconSvg, CloseIconSvg } from "js/UIElements/SvgImages";
+import {
+  DrawerIconSvg,
+  CloseIconSvg,
+  LeftChevronSvg
+} from "js/UIElements/SvgImages";
 import _ from "lodash";
 import { colors } from "../UIElements/colors";
 
@@ -34,13 +38,14 @@ const animateUp = () => {
   }).start();
 };
 
-const headerStyle = ({ navigation }) => {
+const headerStyle = ({ navigation, color }) => {
   const params = navigation.state.params;
   const isScroll = _.get(params, `isScroll`, false);
   const isFixHeader = _.get(params, "isFixHeader", false);
   const customHeaderStyle = _.get(params, "customHeaderStyle", {});
+
   return {
-    backgroundColor: `rgba(0,0,0,0.25)`,
+    backgroundColor: color ? color : `rgba(0,0,0,0)`,
     height: HEADER_HEIGHT,
     elevation: isScroll && !isFixHeader ? 0.5 : 0,
     shadowColor: isScroll && !isFixHeader ? null : "transparent",
@@ -60,7 +65,7 @@ const opacityHeaderStyle = ({ navigation }) => {
   const headerOpacity = _.get(params, `headerOpacity`, defaultAnimationValue);
   const opacityAnimation = headerOpacity.interpolate({
     inputRange: [0, 1],
-    outputRange: ["rgba(255,255,255,0)", "rgba(255,255,255,1)"]
+    outputRange: ["rgba(0,0,0,0.25)", "rgba(0,0,0,1)"]
   });
 
   return {
@@ -107,55 +112,10 @@ const headerLeft = ({ navigation }) => {
             {headerLeftText}
           </Text>
         ) : (
-          <View />
+          <LeftChevronSvg fill={leftChevronColor} />
         )}
       </View>
     </TouchableOpacity>
-  );
-};
-
-const headerShadowLeft = ({ navigation }) => {
-  const params = navigation.state.params;
-  const isScroll = _.get(params, `isScroll`, true);
-
-  const onPressLeft = () => {
-    Keyboard.dismiss();
-    if (params && params.customOnHeaderLeftClick) {
-      params.customOnHeaderLeftClick();
-    } else {
-      navigation.goBack();
-    }
-  };
-  return (
-    <TouchableOpacity onPress={() => onPressLeft()} activeOpacity={0.8}>
-      <View style={styles.headerLeftContainer}>
-        <Image
-          source={require("./back.png")}
-          style={{ width: 15, height: 25 }}
-        />
-      </View>
-    </TouchableOpacity>
-  );
-};
-
-const headerLeftClose = ({ navigation }) => {
-  const params = navigation.state.params;
-  const height = _.get(params, "leftChevronHeight", 14);
-  const width = _.get(params, "leftChevronWidth", 14);
-  const leftChevronColor = _.get(params, `leftChevronColor`, "black");
-  const onPressLeft = () => {
-    if (params && params.customOnHeaderLeftClick) {
-      params.customOnHeaderLeftClick();
-    } else {
-      navigation.goBack();
-    }
-  };
-  return (
-    <TouchableWithoutFeedback onPress={() => onPressLeft()}>
-      <View style={styles.headerLeftContainer}>
-        <CloseIconSvg width={width} height={height} fill={leftChevronColor} />
-      </View>
-    </TouchableWithoutFeedback>
   );
 };
 
