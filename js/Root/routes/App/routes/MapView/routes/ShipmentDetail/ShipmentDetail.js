@@ -5,6 +5,7 @@ import MapView, { Marker } from "react-native-maps";
 import { connect } from "react-redux";
 import { CarrierShipIconSvg } from "js/UIElements/SvgImages";
 import Detail from "./Detail";
+import InfoCard from "./InfoCard";
 const MarkerIcon = ({ bgColor }) => {
   return (
     <View style={{ ...styles.markerIcon, backgroundColor: bgColor }}>
@@ -27,7 +28,7 @@ class ShipmentDetail extends Component {
         <MapView
           style={styles.map}
           initialRegion={{
-            latitude: coordinate.latitude - 0.008,
+            latitude: coordinate.latitude - 0.0035,
             longitude: coordinate.longitude,
             latitudeDelta: 0.099 * 0.3,
             longitudeDelta: 0.067 * 0.3
@@ -35,6 +36,9 @@ class ShipmentDetail extends Component {
         >
           <Marker coordinate={coordinate}>
             <MarkerIcon bgColor={bgColor} />
+            <View style={styles.shipmentInfoCard}>
+              <InfoCard />
+            </View>
           </Marker>
         </MapView>
         <Detail />

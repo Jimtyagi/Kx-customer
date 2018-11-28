@@ -48,14 +48,14 @@ class Detail extends Component {
             verticalOnly={true}
             initialPosition={{ y: Screen.height + 20 }}
             boundaries={{
-              top: 200,
+              top: 300,
               bottom: Screen.height + 20,
 
               haptics: true
             }}
             snapPoints={[
               { y: Screen.height + 20, id: "closed" },
-              { y: 200, id: "open" }
+              { y: 300, id: "open" }
             ]}
             onSnap={this.onDrawerSnap}
           >

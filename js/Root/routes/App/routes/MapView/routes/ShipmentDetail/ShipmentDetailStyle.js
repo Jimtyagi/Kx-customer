@@ -29,7 +29,13 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.8,
     shadowRadius: 2,
     borderColor: colors.white,
-    borderWidth: 1
+    borderWidth: 1,
+    position: "relative"
+  },
+  shipmentInfoCard: {
+    position: "absolute",
+    bottom: 40,
+    left: -90
   }
 });
 
